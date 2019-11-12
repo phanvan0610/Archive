@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+message SimpleSupplyPayload{
+    enum Action {
+        CREATE_USER = 0;
+        CREATELC = 1;
+    }
+    Action action = 1;
+    uint64 timestamp = 2;
+    Create_User create_user = 3;
+    Createlc createLc=4;
+}
+
+
+message Createlc {
+    Role role = 1;
+    enum Role{
+        USER = 0;
+    }
+    string content = 2;
+    string publicKeyUser = 3;
+}
+
+message Create_User{
+    enum Role{
+        USER = 0;
+        STAFF = 1;
+    }
+    string username = 1;
+    Role role = 2;
+}
